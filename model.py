@@ -3,7 +3,7 @@ import random
 
 app = Flask(__name__)
 
-@app.route('/', methods=['POST'])
+@app.route('/api/chat', methods=['POST'])
 def chat():
     data = request.json
     message = data['message'].lower()
@@ -21,6 +21,3 @@ def chat():
         response = random.choice(responses)
 
     return jsonify({'message': response})
-
-if __name__ == '__main__':
-    app.run(debug=True)
